@@ -1,0 +1,84 @@
+/*===========  BASE  ============*/
+body, html{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+h1{
+
+}
+
+h2{
+
+}
+
+/*=========== LAYOUT ===========*/
+main{
+	width: 100%;
+	display: flex;
+
+}
+
+/*=========== MODULES ==========*/
+.menuCategory{
+	width: 40%;
+	min-width: 30em;
+	&--burgers{
+		h2{
+			text-align: center;
+			padding:1em 0;
+			background-color: rgb(203, 87, 3);
+			margin: 0;
+			-webkit-border-radius: 50px 50px 3px 3px;
+			border-radius: 50px 50px 3px 3px;
+		}
+		.burger{
+			summary{
+				text-align:center;
+				padding: 1em 0;
+				-webkit-border-radius: 8px;
+				border-radius: 8px;
+				&::-webkit-details-marker {
+				  display: none
+				}
+			}
+
+
+			&--burgerLayer{
+				summary{
+					background-color: brown;
+				}
+			}
+
+			&--tomato{
+				summary{
+					background-color: tomato;
+				}
+			}
+
+			&--letuce{
+				summary{
+					background-color: green;
+				}
+			}
+		}
+		div{
+			background-color: rgb(203, 87, 3);
+			height: 3em;
+			width: 100%;
+			-webkit-border-radius: 5px 5px 3px 3px;
+			border-radius: 5px 5px 3px 3px;
+		}
+	}
+
+	&--fries{
+
+	}
+
+	&--drinks{
+
+	}
+}
+
+/*=========== STATES ===========*/
