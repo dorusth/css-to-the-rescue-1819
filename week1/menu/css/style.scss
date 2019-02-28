@@ -1,84 +1,276 @@
 /*===========  BASE  ============*/
 body, html{
 	margin: 0;
-	padding:0;
+	padding:0 0 1em;
 	box-sizing: border-box;
+	font-family: sans-serif;
+
 }
 
+body{
+	width: 80%;
+	min-width: 25em;
+	overflow-x: hidden;
+	clip-path: polygon(0% 10%, 10% 10%, 10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%);
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+ul{
+	padding: 0;
+	list-style: none;
+}
 h1{
+	text-align: center;
 
 }
-
-h2{
-
-}
-
 /*=========== LAYOUT ===========*/
 main{
-	width: 100%;
+	width: 90%;
+	max-width: 90em;
+	margin: 0 auto;
+	justify-content: space-around;
 	display: flex;
-
+	flex-direction: column;
+	align-items: center;
 }
 
+header{
+	margin: 5em 0;
+}
 /*=========== MODULES ==========*/
 .menuCategory{
 	width: 40%;
-	min-width: 30em;
+	min-width: 25em;
+	min-height: 20em;
+	margin-bottom: 3em;
 	&--burgers{
+		    min-width: 23em;
 		h2{
 			text-align: center;
 			padding:1em 0;
 			background-color: rgb(203, 87, 3);
 			margin: 0;
-			-webkit-border-radius: 50px 50px 3px 3px;
 			border-radius: 50px 50px 3px 3px;
-		}
-		.burger{
-			summary{
-				text-align:center;
-				padding: 1em 0;
-				-webkit-border-radius: 8px;
-				border-radius: 8px;
-				&::-webkit-details-marker {
-				  display: none
-				}
-			}
-
-
-			&--burgerLayer{
-				summary{
-					background-color: brown;
-				}
-			}
-
-			&--tomato{
-				summary{
-					background-color: tomato;
-				}
-			}
-
-			&--letuce{
-				summary{
-					background-color: green;
-				}
-			}
 		}
 		div{
 			background-color: rgb(203, 87, 3);
 			height: 3em;
 			width: 100%;
-			-webkit-border-radius: 5px 5px 3px 3px;
 			border-radius: 5px 5px 3px 3px;
 		}
 	}
 
-	&--fries{
+	.burger{
+		height: 3.4em;
+		overflow: hidden;
+		text-align:center;
+		border-radius: 8px;
+		display: block;
+		transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		h3{
+			margin: 0;
+			display: block;
+			font-size: calc(16px + (100vw - 200px)/ 700);
+			padding:1em 0;
+		}
+		&--burgerLayer h3{
+				background:brown;
+		}
+		&--letuceLayer h3{
+				background: tomato;
+		}
+		&--tomatoLayer h3{
+				background: green;
+		}
+	}
 
+	.burger--toggle{
+		display: none;
+	}
+
+	&--fries{
+		height: 30em;
+		position: relative;
+		background: linear-gradient(to bottom, rgba(255,50,50,0) 0%,rgba(255,50,50,0) 20%,rgba(255,50,50,1) 21%,rgba(255,50,50,1) 99%,rgba(255,50,50,1) 100%) no-repeat;
+		text-align: center;
+		overflow: visible;
+		clip-path: polygon(0 0%, 100% 0%, 80% 100%, 20% 100%);
+			h2{
+				margin: 6em 0 3em;
+			}
 	}
 
 	&--drinks{
-
+		height: 30em;
+		min-width: 23em;
+		clip-path: polygon(0 0%, 100% 0%, 70% 100%, 30% 100%);
+		background: linear-gradient(to top, rgba(219,219,219,1) 0%,rgba(219,219,219,1) 99%,rgba(219,219,219,0) 100%) no-repeat;
+		background-position: 0 0;
+		//animation: 120s drinkDown;
+		text-align: center;
+		border-top: 1px solid gray;
+		margin-top: 1em;
+		h2{
+			margin-top: 3em;
+		}
+		ul{
+			display: flex;
+			flex-direction: column;
+			li{
+				margin-top: 1em;
+			}
+		}
 	}
 }
 
+.friesMenu--fries{
+	width: 100%;
+	display: flex;
+	top: 0;
+	position: absolute;
+	padding-left: 2em;
+	input[type=checkbox]{
+		display: none;
+		position: absolute;
+		+ label{
+			opacity: 1;
+			background-color: gold;
+			height: 4em;
+			margin-top: 2em;
+			width: 5.5%;
+			clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+			transition: all .3s ease;
+		}
+	}
+}
+
+.friesMenu--list li{
+	padding: 1em 0;
+}
+
+.drink--selector{
+	display: none;
+}
+
 /*=========== STATES ===========*/
+.burger--toggle:checked~ label{
+	height: 7.5em;
+	&:hover{
+		animation: none;
+	}
+}
+
+.burger:hover{
+	animation: 1s burgerShuffle;
+}
+
+.friesMenu--fries{
+	input[type=checkbox]:checked + label{
+		opacity: 1;
+		margin-top: -4em;
+		transform: rotate(20deg);
+	}
+	label:hover{
+		animation: .4s fryShake infinite;
+	}
+}
+
+.friesMenu--list li{
+	&:hover ~ div{
+		label:nth-of-type(1n){
+			animation: .2s fryShake infinite .1s;
+		}
+		label:nth-of-type(2n){
+			animation: .3s fryShake infinite .2s;
+		}
+		label:nth-of-type(3n){
+			animation: .4s fryShake infinite .3s;
+		}
+		label:nth-of-type(3n){
+			animation: .5s fryShake infinite .4s;
+		}
+	}
+	&:nth-child(1):focus ~ div label:nth-of-type(2n){
+		opacity: 1;
+		margin-top: -4em;
+		transform: rotate(40deg);
+	}
+	&:nth-child(1):focus ~ div label:nth-of-type(4n){
+		opacity: 1;
+		margin-top: -4em;
+		transform: rotate(40deg);
+		transition-delay: .2s;
+	}
+	&:nth-child(2):focus ~ div label:nth-of-type(4n){
+		opacity: 1;
+		margin-top: -4em;
+		transform: rotate(50deg);
+	}
+}
+
+.drink--selector{
+	&:checked ~ .menuCategory--drinks{
+		animation: 200s drinkDown forwards;
+	}
+	&#drink1:checked ~ .menuCategory--drinks{
+		background: linear-gradient(to top, rgba(98, 27, 0, 1) 0%,rgba(98, 27, 0, 1) 99%,rgba(98, 27, 0, 0) 100%) no-repeat;
+		ul{
+			color: gray;
+		}
+	}
+	&#drink2:checked ~ .menuCategory--drinks{
+		background: linear-gradient(to top, rgba(255, 130, 0, 1) 0%,rgba(255, 130, 0, 1) 99%,rgba(255, 130, 0, 0) 100%) no-repeat;
+	}
+	&#drink3:checked ~ .menuCategory--drinks{
+		background: linear-gradient(to top, rgba(250, 250, 250, 1) 0%,rgba(250, 250, 250, 1) 99%,rgba(98, 27, 0, 0) 100%) no-repeat;
+	}
+	&#drink4:checked ~ .menuCategory--drinks{
+		background: linear-gradient(to bottom, rgba(239,226,213,1) 10%,rgba(242,142,28,1) 12%,rgba(242,142,28,1) 85%) no-repeat;
+	}
+	&#drink5:checked ~ .menuCategory--drinks{
+		background: linear-gradient(to top, rgba(0, 119, 190, 1) 0%, rgba(0, 119, 190, 1) 99%,rgba(98, 27, 0, 0) 100%) no-repeat;
+	}
+}
+
+/*=========== animations ===========*/
+
+@keyframes burgerShuffle {
+	25%{
+		height: 3.6em;
+		transform: rotate(-2deg);
+	}
+	50%{
+		height: 3.3em;
+		transform: rotate(2deg);
+	}
+	75%{
+		height: 3.5em;
+		transform: rotate(-1deg);
+	}
+	100%{
+		height: 3.4em;
+		transform: rotate(1deg);
+	}
+}
+
+@keyframes fryShake {
+  25%{
+	  transform: rotate(-10deg);
+  }
+
+  75%{
+	  transform: rotate(10deg);
+
+  }
+}
+
+@keyframes drinkDown {
+  from {
+    background-position: 0;
+  }
+
+  to {
+    background-position: 0 25em;
+  }
+}

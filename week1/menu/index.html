@@ -8,38 +8,100 @@
 	<title>Menu</title>
 </head>
 <body>
- <header>
- 	<h1>Menu</h1>
- </header>
- <main>
- 	<section class="menuCategory menuCategory--burgers">
-		<h2>Burgers</h2>
-		<details class="burger burger--burgerLayer">
-			<summary>Burger #1</summary>
-			<p>long ass explanation about the contents of the burger and other information that is needed for the burger</p>
-		</details>
-		<details class="burger burger--tomato">
-			<summary>Burger #2</summary>
-			<p>long ass explanation about the contents of the burger and other information that is needed for the burger</p>
-		</details>
-		<details class="burger burger--letuce">
-			<summary>Burger #3</summary>
-			<p>long ass explanation about the contents of the burger and other information that is needed for the burger</p>
-		</details>
+<header>
+	<h1>Menu</h1>
+</header>
+<main>
+	<section class="menuCategory menuCategory--burgers">
+		<input type="checkbox" id="burgerDropdown" class="burger--toggle">
+		<label for="burgerDropdown"><h2>Burgers</h2></label>
+		<label for="burgerDropdown" class="burger burger--burgerLayer">
+			<h3>IRISH BEEF (premium beef)</h3>
+			<p>The pure, full flavor of 100% prime and tender Irish Beef.</p>
+		</label>
+		<label for="burgerDropdown" class="burger burger--letuceLayer">
+			<h3>WAGYU BURGER (kobe style wagyu beef)</h3>
+			<p>Widely believed, by many, to be the highest quality beef in the world – a true-melt-in-the-mouth sensation.</p>
+		</label>
+		<label for="burgerDropdown" class="burger burger--tomatoLayer">
+			<h3>VEGABURGER (chickpeas, herbs, garlic sauce)</h3>
+		   <p>Another delicious vegetarian burger, made of chickpeas.</p>
+	   </label>
 		<div></div>
  	</section>
 
 	<section class="menuCategory menuCategory--fries">
- 		<ul>
+		<h2>fries</h2>
+		<ul class="friesMenu--list">
+			<li tabindex="0">Small</li>
+			<li tabindex="0">Medium</li>
+			<li tabindex="0">Large</li>
+			<div class="friesMenu--fries">
+				<input id="fry-1" type="checkbox">
+				<label for="fry-1"></label>
 
+				<input id="fry-2" type="checkbox">
+				<label for="fry-2"></label>
+
+				<input id="fry-3" type="checkbox">
+				<label for="fry-3"></label>
+
+				<input id="fry-4" type="checkbox">
+				<label for="fry-4"></label>
+
+				<input id="fry-5" type="checkbox">
+				<label for="fry-5"></label>
+
+				<input id="fry-6" type="checkbox">
+				<label for="fry-6"></label>
+
+				<input id="fry-7" type="checkbox">
+				<label for="fry-7"></label>
+
+				<input id="fry-8" type="checkbox">
+				<label for="fry-8"></label>
+
+				<input id="fry-9" type="checkbox">
+				<label for="fry-9"></label>
+
+				<input id="fry-10" type="checkbox">
+				<label for="fry-10"></label>
+
+				<input id="fry-11" type="checkbox">
+				<label for="fry-11"></label>
+
+				<input id="fry-12" type="checkbox">
+				<label for="fry-12"></label>
+
+				<input id="fry-13" type="checkbox">
+				<label for="fry-13"></label>
+
+				<input id="fry-14" type="checkbox">
+				<label for="fry-14"></label>
+
+				<input id="fry-15" type="checkbox">
+				<label for="fry-15"></label>
+
+				<input id="fry-16" type="checkbox">
+				<label for="fry-16"></label>
+			</div>
  		</ul>
  	</section>
-
+	<input type="radio" id="drink1" class="drink--selector" name="drinks">
+	<input type="radio" id="drink2" class="drink--selector" name="drinks">
+	<input type="radio" id="drink3" class="drink--selector" name="drinks">
+	<input type="radio" id="drink4" class="drink--selector" name="drinks">
+	<input type="radio" id="drink5" class="drink--selector" name="drinks">
 	<section class="menuCategory menuCategory--drinks">
+		<h2>Drinks</h2>
  		<ul>
-
+			<label for="drink1">Cola</label>
+			<label for="drink2">Fanta</label>
+			<label for="drink3">Sprite</label>
+			<label for="drink4">Beer</label>
+			<label for="drink5">Water</label>
  		</ul>
  	</section>
- </main>
+</main>
 </body>
 </html>
