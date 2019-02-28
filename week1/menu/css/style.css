@@ -156,6 +156,25 @@ header {
 .burger--toggle:checked ~ label:hover {
   animation: none;
 }
+.burger--toggle:checked ~ .burger--top:hover ~ .burger:nth-of-type(1n) {
+  animation: none;
+}
+.burger--toggle:checked ~ .burger--top:hover ~ .burger:nth-of-type(2n) {
+  animation: none;
+}
+.burger--toggle:checked ~ .burger--top:hover ~ .burger:nth-of-type(3n) {
+  animation: none;
+}
+
+.burger--top:hover ~ .burger:nth-of-type(1n) {
+  animation: 1s burgerShuffle .2s 3;
+}
+.burger--top:hover ~ .burger:nth-of-type(2n) {
+  animation: 1s burgerShuffle .1s 3;
+}
+.burger--top:hover ~ .burger:nth-of-type(3n) {
+  animation: 1s burgerShuffle .3s 3;
+}
 
 .burger:hover {
   animation: 1s burgerShuffle;
@@ -171,16 +190,16 @@ header {
 }
 
 .friesMenu--list li:hover ~ div label:nth-of-type(1n) {
-  animation: .2s fryShake infinite .1s;
+  animation: .2s fryShake .4s 4;
 }
 .friesMenu--list li:hover ~ div label:nth-of-type(2n) {
-  animation: .3s fryShake infinite .2s;
+  animation: .3s fryShake .3s 4;
 }
 .friesMenu--list li:hover ~ div label:nth-of-type(3n) {
-  animation: .4s fryShake infinite .3s;
+  animation: .4s fryShake .2s 4;
 }
 .friesMenu--list li:hover ~ div label:nth-of-type(3n) {
-  animation: .5s fryShake infinite .4s;
+  animation: .5s fryShake .1s 4;
 }
 .friesMenu--list li:nth-child(1):focus ~ div label:nth-of-type(2n) {
   opacity: 1;
